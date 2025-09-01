@@ -75,7 +75,7 @@ def buscar_pokemon(nome):
         return None
 
 st.title("Bem-vindo a sua Pokédex")
-st.write(f"💰 Moedas: {st.session_state.moedas}$")
+st.write(f"💰 Moedas: ${st.session_state.moedas}")
 
 # Botão de resetar o game
 if st.button("🔄 Resetar Jogo"):
@@ -87,8 +87,7 @@ if st.button("🔄 Resetar Jogo"):
         "moedas",
         "rolagem_restante",
         "ultimo_reset",
-        "pokemon_rolado"
-    ]:
+        "pokemon_rolado"]:
         if key in st.session_state:
             del st.session_state[key]
     st.success("Jogo resetado! Recarregue a página para começar do zero.")
@@ -128,6 +127,7 @@ with aba1:
                     chance = random.randint(1, 10)
                     pegar = random.randint(1, 10)
                     if pegar <= chance:
+                        time.sleep(1)
                         info = buscar_pokemon(poke["name"])
                         if info:
                             st.session_state.pokemons_capturados[poke["name"]] = info
@@ -136,6 +136,7 @@ with aba1:
                             st.success(f"Você capturou {poke['name']}! (+{moedas_ganhas} moedas)")
                             st.session_state.pokemon_rolado = None  # Limpa o Pokémon sorteado
                     else:
+                        time.sleep(1)
                         st.warning("O Pokémon escapou!")
                         st.session_state.pokemon_rolado = None
                 else:
@@ -177,7 +178,7 @@ with aba2:
         st.write(f"- **Altura:** {info['altura']}")
         st.write(f"- **Peso:** {info['peso']}")
     else:
-        st.warning("Você ainda não capturou nenhum Pokémon.")
+        st.warning("Você ainda não capturou nenhum Pokémon")
 
 
 with aba3:
