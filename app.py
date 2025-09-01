@@ -74,9 +74,8 @@ def buscar_pokemon(nome):
         st.error("Pokémon não encontrado.")
         return None
 
-st.title("Bem-vindo a sua Pokédex")
+st.title("Bem-vindo ao seu Programa de Pokemon")
 st.write(f"💰 Moedas: ${st.session_state.moedas}")
-
 # Botão de resetar o game
 if st.button("🔄 Resetar Jogo"):
     for key in [
