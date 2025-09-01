@@ -118,7 +118,7 @@ with aba1:
         st.subheader("Pokémon Sorteado")
         col1, col2 = st.columns([1, 4])
         with col1:
-            st.image(poke["img"], width=80)
+            st.image(poke["img"], width=280)
         with col2:
             st.write(f"**{poke['name']}**")
             if st.button(f"Capturar {poke['name']}", key=f"capturar_{poke['name']}"):
